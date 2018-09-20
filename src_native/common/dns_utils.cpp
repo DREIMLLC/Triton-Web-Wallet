@@ -345,8 +345,8 @@ namespace dns_utils
 // TODO: parse the string in a less stupid way, probably with regex
 std::string address_from_txt_record(const std::string& s)
 {
-  // make sure the txt record has "oa1:msr" and find it
-  auto pos = s.find("oa1:msr");
+  // make sure the txt record has "oa1:XTR" and find it
+  auto pos = s.find("oa1:XTR");
   if (pos == std::string::npos)
     return {};
   // search from there to find "recipient_address="
@@ -466,7 +466,7 @@ bool load_txt_records_from_dns(std::vector<std::string> &good_records, const std
   for (size_t n = 0; n < dns_urls.size(); ++n)
   {
     threads[n] = boost::thread([n, dns_urls, &records, &avail, &valid](){
-      records[n] = tools::DNSResolver::instance().get_txt_record(dns_urls[n], avail[n], valid[n]); 
+      records[n] = tools::DNSResolver::instance().get_txt_record(dns_urls[n], avail[n], valid[n]);
     });
   }
   for (size_t n = 0; n < dns_urls.size(); ++n)
@@ -506,7 +506,7 @@ bool load_txt_records_from_dns(std::vector<std::string> &good_records, const std
 
   if (num_valid_records < 2)
   {
-    LOG_PRINT_L2("WARNING: no two valid MasariPulse DNS checkpoint records were received");
+    LOG_PRINT_L2("WARNING: no two valid TritonP DNS checkpoint records were received");
     return false;
   }
 

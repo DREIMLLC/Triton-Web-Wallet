@@ -24,7 +24,7 @@ export class WalletRepository{
 			return wallet !== null;
 		});
 	}
-	
+
 	static getWithPassword(rawWallet : RawWallet, password : string) : Wallet|null{
 		if(password.length > 32)
 			password = password.substr(0 , 32);
@@ -52,7 +52,7 @@ export class WalletRepository{
 			}
 		});
 	}
-	
+
 	static save(wallet : Wallet, password : string) : Promise<void>{
 		let rawWallet = this.getEncrypted(wallet, password);
 		return Storage.setItem('wallet', JSON.stringify(rawWallet));
@@ -151,15 +151,15 @@ export class WalletRepository{
 		doc.setTextColor(255, 255, 255);
 		doc.setFontSize(10);
 		doc.text(110, 120, "To deposit funds to this paper wallet, send ");
-		doc.text(110, 125, "Masari to the public address");
+		doc.text(110, 125, "Triton to the public address");
 
 		doc.text(110, 135, "DO NOT REVEAL THE PRIVATE KEY");
 
-		//adding masari logo
+		//adding triton logo
 		let c : HTMLCanvasElement|null = <HTMLCanvasElement>document.getElementById('canvasExport');
 		if(c !== null) {
 			let ctx = c.getContext("2d");
-			let img: ImageBitmap | null = <ImageBitmap | null>document.getElementById("verticalMasariLogo");
+			let img: ImageBitmap | null = <ImageBitmap | null>document.getElementById("verticalTritonLogo");
 			if (ctx !== null && img !== null) {
 				c.width = img.width;
 				c.height = img.height;

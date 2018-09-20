@@ -29,12 +29,12 @@
 <script>
 	var clickButton = document.getElementById('payButton');
 
-	function MasariLoaded(){
+	function TritonLoaded(){
 		clickButton.disabled = false;
 		clickButton.addEventListener("click", function(){
-			MasariApi.makeTransfer({
+			TritonApi.makeTransfer({
 				amount:10,
-				address:'wallet.masaricoin.com',
+				address:'tritonwallet.com',
 				description:'Description',
 				destName:'Webwallet',
 				redirect:encodeURIComponent(window.location.href)
@@ -44,12 +44,12 @@
 		});
 
 		console.log('LOADED CALLBACK');
-		MasariApi.hasWallet().then(function(hasWAllet){
+		TritonApi.hasWallet().then(function(hasWAllet){
 			console.log('HAS WALLET');
 			console.log(hasWAllet);
 		});
 	}
-	MasariApi.init().then(MasariLoaded);
+	TritonApi.init().then(TritonLoaded);
 
 </script>
 
