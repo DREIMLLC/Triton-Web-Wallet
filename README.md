@@ -33,7 +33,7 @@ We have been receiving multiple coin developers help to fork it. As the time req
 
 If you are a developer of a Cryptonote/Monero fork and would like to get a fork, please contact us (@gnock on the [official Discord](https://discord.gg/eSb9ZdM)).
 
-Depending on your coin specifics, I can provide support, maintenancem and development/updates for a payment in return - crypto only.
+Depending on your coin specifics, I can provide support, maintenance and development/updates for a payment in return - crypto only.
 If you are not willing to pay for this service, please do not contact us and make us lose time.
 
 The code is readable, it should be enough for you to use it.
